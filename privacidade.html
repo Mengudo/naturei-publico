@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naturei — Política de Privacidade</title>
+<!--
+  Pronta para GitHub Pages (Settings > Pages > branch main, pasta /docs):
+  a URL pública fica https://mengudo.github.io/naturei/privacidade.html
+  e é a que vai no Google Play Console.
+  ANTES DE PUBLICAR: troque o e-mail de contato marcado com TODO.
+  Atualize esta página sempre que o app passar a coletar algo novo
+  (ex.: Firebase Auth/Crashlytics, localização).
+-->
+<style>
+  :root { --bg: #F7F3EA; --text: #1E2B24; --muted: #55635B; --accent: #2E7D52; --card: #FFFFFF; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0E1F17; --text: #E8EFE9; --muted: #A9B8AE; --accent: #7FCBA0; --card: #16291F; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; font-weight: 600; margin: 0 0 4px; }
+  h2 { font-size: 19px; font-weight: 600; margin: 32px 0 8px; color: var(--accent); }
+  .muted { color: var(--muted); }
+  .card { background: var(--card); border-radius: 12px; padding: 16px 20px; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid rgba(127,127,127,.25); vertical-align: top; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Política de Privacidade do Naturei</h1>
+  <p class="muted">Última atualização: 20 de outubro de 2026 · Versão do app: 0.1.0</p>
+
+  <div class="card">
+    <strong>Resumo:</strong> o Naturei não pede conta, nome, e-mail nem localização. Para identificar uma planta,
+    ele envia apenas a foto que você tirou, reduzida e sem metadados (sem GPS). Sons gravados para identificar aves,
+    sapos e insetos são analisados no próprio aparelho e nunca saem dele. Seu diário de descobertas fica guardado só
+    no seu aparelho, e você pode apagá-lo a qualquer momento.
+  </div>
+
+  <h2>1. Quem somos</h2>
+  <p>O Naturei é um aplicativo gratuito de identificação de plantas por foto. Controlador dos dados, nos termos da
+  Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018): o desenvolvedor do Naturei. Contato:
+  <!-- TODO: trocar pelo e-mail de contato real antes de publicar -->
+  <strong>[e-mail de contato]</strong>.</p>
+
+  <h2>2. Quais dados o app usa e para quê</h2>
+  <table>
+    <tr><th>Dado</th><th>Para quê</th><th>Para onde vai</th></tr>
+    <tr>
+      <td>Foto que você tira no app</td>
+      <td>Identificar a espécie</td>
+      <td>Enviada ao nosso servidor (Cloudflare Workers), que a repassa ao serviço
+        <a href="https://plantnet.org/">Pl@ntNet</a>. Antes do envio, o app reduz a foto e remove todos os
+        metadados EXIF, inclusive a localização GPS.</td>
+    </tr>
+    <tr>
+      <td>Parte da planta escolhida (folha, flor…)</td>
+      <td>Melhorar a precisão</td>
+      <td>Enviada junto com a foto ao Pl@ntNet.</td>
+    </tr>
+    <tr>
+      <td>Som gravado pelo microfone (alguns segundos)</td>
+      <td>Identificar aves, anfíbios, insetos e mamíferos pelo canto</td>
+      <td><strong>Lugar nenhum.</strong> O áudio é analisado no seu aparelho pelo modelo BirdNET+ e descartado logo
+        depois. Não é salvo em arquivo nem enviado a nenhum servidor.</td>
+    </tr>
+    <tr>
+      <td>Nome científico da espécie identificada</td>
+      <td>Montar a ficha (resumo, taxonomia, conservação)</td>
+      <td>Consultado na <a href="https://pt.wikipedia.org/">Wikipedia</a>, no
+        <a href="https://www.gbif.org/">GBIF</a> e no <a href="https://www.inaturalist.org/">iNaturalist</a>.
+        Nenhum dado seu vai junto, só o nome da espécie.</td>
+    </tr>
+    <tr>
+      <td>Diário (fotos e fichas salvas)</td>
+      <td>Guardar suas descobertas</td>
+      <td>Fica <strong>só no seu aparelho</strong>. Não é enviado a nenhum servidor.</td>
+    </tr>
+    <tr>
+      <td>Preferências (tema, onboarding visto)</td>
+      <td>Lembrar suas escolhas</td>
+      <td>Só no seu aparelho.</td>
+    </tr>
+  </table>
+
+  <p>Na primeira vez que você usa a identificação por som, o app baixa o modelo BirdNET+ (cerca de 67 MB) do
+  GitHub. Esse download não envia nenhum dado seu.</p>
+
+  <p>Nosso servidor não guarda as fotos: ele só as repassa ao Pl@ntNet e devolve o resultado ao app. O Pl@ntNet
+  tem sua própria política de privacidade, disponível em <a href="https://plantnet.org/">plantnet.org</a>.</p>
+
+  <h2>3. O que o app não faz</h2>
+  <ul>
+    <li>Não pede nem coleta localização.</li>
+    <li>Não exige cadastro, login, nome ou e-mail.</li>
+    <li>Não mostra anúncios e não vende nem compartilha dados para publicidade.</li>
+    <li>Não usa ferramentas de análise de uso nem de rastreamento.</li>
+  </ul>
+
+  <h2>4. Permissões do Android</h2>
+  <ul>
+    <li><strong>Câmera:</strong> pedida só quando você toca em "Identificar planta", para tirar a foto.</li>
+    <li><strong>Microfone:</strong> pedido só quando você toca em "Ouvir sons da natureza". Grava alguns segundos,
+      analisa no aparelho e descarta.</li>
+    <li><strong>Internet:</strong> para enviar a foto e buscar as informações da espécie.</li>
+  </ul>
+
+  <h2>5. Seus direitos (LGPD)</h2>
+  <p>Você pode, a qualquer momento:</p>
+  <ul>
+    <li>apagar todo o seu diário em <em>Ajustes → Privacidade → Apagar todo o diário</em>;</li>
+    <li>apagar uma descoberta específica no próprio diário;</li>
+    <li>desinstalar o app, o que remove todos os dados guardados nele;</li>
+    <li>falar com a gente pelo contato acima para tirar dúvidas ou exercer outros direitos previstos na LGPD.</li>
+  </ul>
+
+  <h2>6. Crianças</h2>
+  <p>O app não coleta dados pessoais de ninguém, incluindo crianças. Recomendamos que menores de 13 anos usem o app
+  com acompanhamento de um responsável.</p>
+
+  <h2>7. Mudanças nesta política</h2>
+  <p>Se o Naturei passar a usar novos dados (por exemplo, conta opcional ou sincronização do diário na nuvem),
+  esta página será atualizada antes da mudança chegar ao app, e a data no topo também.</p>
+</main>
+</body>
+</html>
