@@ -35,7 +35,8 @@
   <p class="muted">Última atualização: 20 de outubro de 2026 · Versão do app: 0.1.0</p>
 
   <div class="card">
-    <strong>Resumo:</strong> o Naturei não pede conta, nome, e-mail nem localização. Para identificar uma planta,
+    <strong>Resumo:</strong> o Naturei não pede conta, nome nem e-mail. A localização é opcional e fica desligada até
+    você ativar. Para identificar uma planta,
     ele envia apenas a foto que você tirou, reduzida e sem metadados (sem GPS). Sons gravados para identificar aves,
     sapos e insetos são analisados no próprio aparelho e nunca saem dele. Seu diário de descobertas fica guardado só
     no seu aparelho, e você pode apagá-lo a qualquer momento.
@@ -69,6 +70,20 @@
         depois. Não é salvo em arquivo nem enviado a nenhum servidor.</td>
     </tr>
     <tr>
+      <td>Localização (opcional, só se você ativar em Ajustes)</td>
+      <td>Mostrar suas descobertas no mapa do diário e filtrar os sons pelas espécies que ocorrem na sua região</td>
+      <td><strong>Só no seu aparelho.</strong> A posição é arredondada (cerca de 11 m) e guardada junto com a
+        descoberta. O filtro regional roda no aparelho, com o geomodelo do BirdNET+. A localização nunca é enviada ao
+        nosso servidor nem ao Pl@ntNet.</td>
+    </tr>
+    <tr>
+      <td>Área do mapa que você está vendo</td>
+      <td>Desenhar o mapa do diário</td>
+      <td>Os blocos do mapa são baixados dos servidores do <a href="https://www.openstreetmap.org/">OpenStreetMap</a>,
+        que recebem só a região exibida, e não as suas descobertas. Veja a
+        <a href="https://osmfoundation.org/wiki/Privacy_Policy">política de privacidade da OSMF</a>.</td>
+    </tr>
+    <tr>
       <td>Nome científico da espécie identificada</td>
       <td>Montar a ficha (resumo, taxonomia, conservação)</td>
       <td>Consultado na <a href="https://pt.wikipedia.org/">Wikipedia</a>, no
@@ -88,14 +103,15 @@
   </table>
 
   <p>Na primeira vez que você usa a identificação por som, o app baixa o modelo BirdNET+ (cerca de 67 MB) do
-  GitHub. Esse download não envia nenhum dado seu.</p>
+  GitHub. Com a localização ativada, ele também baixa o geomodelo (cerca de 14 MB). Esses downloads não enviam
+  nenhum dado seu.</p>
 
   <p>Nosso servidor não guarda as fotos: ele só as repassa ao Pl@ntNet e devolve o resultado ao app. O Pl@ntNet
   tem sua própria política de privacidade, disponível em <a href="https://plantnet.org/">plantnet.org</a>.</p>
 
   <h2>3. O que o app não faz</h2>
   <ul>
-    <li>Não pede nem coleta localização.</li>
+    <li>Não coleta localização sem você ativar, e mesmo ativada ela não sai do aparelho.</li>
     <li>Não exige cadastro, login, nome ou e-mail.</li>
     <li>Não mostra anúncios e não vende nem compartilha dados para publicidade.</li>
     <li>Não usa ferramentas de análise de uso nem de rastreamento.</li>
@@ -104,6 +120,8 @@
   <h2>4. Permissões do Android</h2>
   <ul>
     <li><strong>Câmera:</strong> pedida só quando você toca em "Identificar planta", para tirar a foto.</li>
+    <li><strong>Localização (opcional):</strong> pedida só quando você ativa a opção em Ajustes. Pode ser a
+      aproximada. Desligar a opção para de registrar novos locais.</li>
     <li><strong>Microfone:</strong> pedido só quando você toca em "Ouvir sons da natureza". Grava alguns segundos,
       analisa no aparelho e descarta.</li>
     <li><strong>Internet:</strong> para enviar a foto e buscar as informações da espécie.</li>
