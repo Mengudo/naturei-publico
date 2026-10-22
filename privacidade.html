@@ -32,7 +32,7 @@
 <body>
 <main>
   <h1>Política de Privacidade do Naturei</h1>
-  <p class="muted">Última atualização: 20 de outubro de 2026 (conversa com IA) · Versão do app: 0.1.0</p>
+  <p class="muted">Última atualização: 21 de outubro de 2026 (segunda opinião, Google Cloud Vision e relatório de travamentos) · Versão do app: 0.9.0</p>
 
   <div class="card">
     <strong>Resumo:</strong> o Naturei não pede conta, nome nem e-mail. A localização é opcional e fica desligada até
@@ -56,7 +56,11 @@
       <td>Identificar a espécie</td>
       <td>Enviada ao nosso servidor (Cloudflare Workers), que a repassa ao serviço
         <a href="https://plantnet.org/">Pl@ntNet</a>. Antes do envio, o app reduz a foto e remove todos os
-        metadados EXIF, inclusive a localização GPS.</td>
+        metadados EXIF, inclusive a localização GPS. Para conferir o resultado, a primeira foto também é enviada a
+        uma segunda IA de visão (<a href="https://groq.com/privacy-policy/">Groq</a> ou
+        <a href="https://www.cloudflare.com/privacypolicy/">Workers AI da Cloudflare</a>) e ao
+        <a href="https://cloud.google.com/terms/cloud-privacy-notice">Google Cloud Vision</a>, que procura fotos
+        parecidas na internet.</td>
     </tr>
     <tr>
       <td>Foto de animal (modo "Animal · foto")</td>
@@ -64,7 +68,9 @@
       <td>Enviada ao nosso servidor, reduzida e sem metadados (sem GPS), que a repassa a um serviço de IA de visão:
         <a href="https://groq.com/privacy-policy/">Groq</a> ou, como reserva, o
         <a href="https://www.cloudflare.com/privacypolicy/">Workers AI da Cloudflare</a>. O nome sugerido é conferido no
-        GBIF. Nosso servidor não guarda as fotos. O limite diário usa o mesmo identificador aleatório do aparelho
+        GBIF. A mesma foto também vai a uma segunda IA, ao
+        <a href="https://cloud.google.com/terms/cloud-privacy-notice">Google Cloud Vision</a> e, se for um cão ou
+        gato, ao Workers AI da Cloudflare para sugerir a raça. Nosso servidor não guarda as fotos. O limite diário usa o mesmo identificador aleatório do aparelho
         descrito abaixo.</td>
     </tr>
     <tr>
@@ -126,21 +132,32 @@
       <td>Lembrar suas escolhas</td>
       <td>Só no seu aparelho.</td>
     </tr>
+    <tr>
+      <td>Relatório de travamento (só na versão distribuída)</td>
+      <td>Descobrir e corrigir erros que fecham o app</td>
+      <td>Enviado ao <a href="https://firebase.google.com/support/privacy">Firebase Crashlytics</a> (Google): o
+        ponto do código onde o erro aconteceu, o modelo do aparelho, a versão do Android e do app e um identificador
+        de instalação aleatório. Não inclui fotos, sons, localização, diário nem conversas.</td>
+    </tr>
   </table>
 
   <p>Na primeira vez que você usa a identificação por som, o app baixa o modelo BirdNET+ (cerca de 67 MB) do
   GitHub. Com a localização ativada, ele também baixa o geomodelo (cerca de 14 MB). Esses downloads não enviam
   nenhum dado seu.</p>
 
-  <p>Nosso servidor não guarda as fotos: ele só as repassa ao Pl@ntNet e devolve o resultado ao app. O Pl@ntNet
-  tem sua própria política de privacidade, disponível em <a href="https://plantnet.org/">plantnet.org</a>.</p>
+  <p>Nosso servidor não guarda as fotos: ele só as repassa aos serviços acima e devolve o resultado ao app. Cada
+  serviço tem sua própria política de privacidade, nos links da tabela.</p>
+
+  <p>O botão "Ver no Google Lens" só abre a foto no app do Google se você tocar nele. A partir daí vale a política
+  de privacidade do Google.</p>
 
   <h2>3. O que o app não faz</h2>
   <ul>
     <li>Não coleta localização sem você ativar, e mesmo ativada ela não sai do aparelho.</li>
     <li>Não exige cadastro, login, nome ou e-mail.</li>
     <li>Não mostra anúncios e não vende nem compartilha dados para publicidade.</li>
-    <li>Não usa ferramentas de análise de uso nem de rastreamento.</li>
+    <li>Não usa ferramentas de análise de uso nem de rastreamento. O único relatório automático é o de travamento,
+      descrito acima.</li>
   </ul>
 
   <h2>4. Permissões do Android</h2>
